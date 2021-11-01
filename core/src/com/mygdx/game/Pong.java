@@ -7,14 +7,13 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.mygdx.game.screens.MainMenuScreen;
 
 public class Pong extends Game {
 
-	SpriteBatch batch;
-	ShapeRenderer shape;
-	GlyphLayout fontLayout;
-	final static float WORLD_WIDTH = 352;
-	final static float WORLD_HEIGHT = 198;
+	public SpriteBatch batch;
+	public ShapeRenderer shape;
+	public GlyphLayout fontLayout;
 	
 
 	@Override
@@ -23,7 +22,7 @@ public class Pong extends Game {
 		shape = new ShapeRenderer();
 		fontLayout = new GlyphLayout();
 		
-		this.setScreen(new MainMenu(this));
+		this.setScreen(new MainMenuScreen(this));
 	}
 	
 	@Override
@@ -33,6 +32,7 @@ public class Pong extends Game {
 	
 	@Override
 	public void dispose() {
+		this.getScreen().dispose();
 		batch.dispose();
 		shape.dispose();
 		Font.dispose();

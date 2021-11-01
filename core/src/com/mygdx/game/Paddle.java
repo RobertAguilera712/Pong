@@ -7,7 +7,7 @@ public class Paddle {
 	private float y; 
 	private float width;
 	private float height;
-	private float dy;
+	public float dy;
 	
 	public Paddle(float x, float y, float width, float height) {
 		this.x = x;
@@ -21,7 +21,7 @@ public class Paddle {
 		if (this.dy < 0) {
 			this.y = Math.max(0, this.y + this.dy * dt);
 		}else {
-			this.y = Math.min(Pong.WORLD_HEIGHT - this.height,
+			this.y = Math.min(GameData.WORLD_HEIGHT - this.height,
 					this.y + this.dy * dt);
 		}
 	}
@@ -29,10 +29,5 @@ public class Paddle {
 	public void render(ShapeRenderer shape) {
 		shape.rect(this.x, this.y, this.width, this.height);
 	}
-	
-	public void setDy(float dy) {
-		this.dy = dy;
-	}
-	
 
 }
