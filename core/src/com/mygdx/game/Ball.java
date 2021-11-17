@@ -2,6 +2,7 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.MathUtils;
 
 public class Ball {
 	private float x;
@@ -17,13 +18,15 @@ public class Ball {
 		this.width = width;
 		this.height = height;
 		
-		this.dx = ((float)Math.floor(Math.random() * 2) + 1) == 1 ? 100 : -100;
-		this.dy = (float) Math.floor(Math.random()*(50+51) - 50);
+		this.dx = MathUtils.random(1, 3) == 1 ? 100 : -100;
+		this.dy = MathUtils.random(-50, 51);
 	}
 	
 	public void reset() {
 		this.x = GameData.WORLD_WIDTH / 2 - this.width / 2;
 		this.y = GameData.WORLD_HEIGHT / 2 - this.height / 2;
+		this.dx = MathUtils.random(1, 3) == 1 ? 100 : -100;
+		this.dy = MathUtils.random(-50, 51);
 	}
 	
 	public void update (float dt) {
